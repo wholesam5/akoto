@@ -1,0 +1,362 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #007aff;
+  --card-bg: #f4f4f4;
+  --percent-fill: #34c759;
+  --percent-track: #d1d1d6;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+}
+
+body.dark {
+  --bg: #121212;
+  --text: #f0f0f0;
+  --card-bg: #1e1e1e;
+  --percent-fill: #30d158;
+  --percent-track: #3a3a3c;
+  --primary-color: #0a84ff;
+  --primary-hover: #0066cc;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  background: var(--bg);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#modeToggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* ===== Section Formatting ===== */
+.section {
+  padding: 3rem 1rem;
+  text-align: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ===== Skills Section ===== */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto 0;
+  max-width: 500px;
+}
+
+.skills-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background-color: var(--card-bg);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.skill-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ===== Percentage Sphere ===== */
+.percentage-sphere {
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: conic-gradient(
+    var(--percent-fill) calc(var(--percentage) * 1%),
+    var(--percent-track) 0
+  );
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.percent-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+/* ===== Project Cards ===== */
+.project-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: var(--card-bg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  transition: background 0.3s, box-shadow 0.3s;
+  margin-bottom: 2rem;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 320px;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.project-play-button:hover {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+body.dark .project-play-button {
+  background: rgba(100, 149, 237, 0.3);
+}
+
+.project-description {
+  flex: 1;
+  min-width: 250px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* Gallery thumbnail */
+.gallery-thumb {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.gallery-thumb-img {
+  width: 100px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+  transition: transform .2s;
+}
+
+.gallery-thumb-img:hover {
+  transform: scale(1.03);
+}
+
+/* Full-screen image modal */
+.image-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(6px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: 1000;
+}
+
+.image-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.gallery-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.3);
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  padding: 0 .5rem;
+}
+
+.gallery-nav.prev { left: 2%; }
+.gallery-nav.next { right: 2%; }
+
+.gallery-nav:focus { outline: none; }
+
+/* ===== Video Modal ===== */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 1000;
+}
+
+.video-modal.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.video-frame {
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 1rem;
+}
+
+/* ===== Resume Section ===== */
+.resume-buttons {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+body.dark .btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+body.dark .btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ===== Social Links ===== */
+.socials a {
+  margin: 0 0.5rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ===== Footer ===== */
+footer {
+  padding: 1rem;
+  text-align: center;
+  background: var(--bg);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .project-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+}

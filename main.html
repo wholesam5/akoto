@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Optional: Font Awesome for play icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- ========= Header / Navigation ========= -->
+  <header>
+    <nav>
+      <div class="logo">MyPortfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <button id="modeToggle" aria-label="Toggle dark mode">🌙</button>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========= Hero ========= -->
+  <section id="home" class="section">
+    <h1>Hello, I'm Pierce Jasm Mercader</h1>
+    <p>IT Student | Web Developer | Problem Solver</p>
+  </section>
+
+  <!-- ========= About ========= -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>I am a goal-driven, detail-oriented, and energetic IT student passionate about tech and digital solutions.</p>
+  </section>
+
+  <!-- ========= Skills ========= -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>
+        <span class="skill-name">Adobe Photoshop</span>
+        <div class="percentage-sphere" style="--percentage: 65">
+          <span class="percent-text">65%</span>
+        </div>
+      </li>
+      <li>
+        <span class="skill-name">Responsive Design</span>
+        <div class="percentage-sphere" style="--percentage: 85">
+          <span class="percent-text">85%</span>
+        </div>
+      </li>
+      <li>
+        <span class="skill-name">UI / UX Principles</span>
+        <div class="percentage-sphere" style="--percentage: 50">
+          <span class="percent-text">50%</span>
+        </div>
+      </li>
+      <li>
+        <span class="skill-name">Git & GitHub</span>
+        <div class="percentage-sphere" style="--percentage: 75">
+          <span class="percent-text">75%</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ========= Projects ========= -->
+  <section id="projects" class="section">
+    <h2>Projects & Works</h2>
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <h3>Arellano University – EEC (Minecraft Version)</h3>
+      <div class="project-content">
+        <!-- Video Preview -->
+        <div class="video-wrapper"
+             data-video="EECfinal.mp4"
+             aria-label="Play project video">
+          <img src="EEC.png"
+               alt="Arellano University – EEC Minecraft preview"
+               class="video-thumb" />
+          <button class="project-play-button">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+
+        <!-- Description -->
+        <div class="project-description">
+          <p>
+            This project is a virtual re-creation of Arellano University – EEC Campus using Minecraft.
+            It was designed to showcase the campus layout and facilities in an immersive, block-based
+            environment. Aimed at student engagement and exploration, the build reflects architectural
+            accuracy and creative spatial design.
+          </p>
+
+          <!-- Image Preview Button -->
+          <button class="gallery-thumb"
+                  data-images="court.png,office.png,ako.png"
+                  aria-label="Open project photo gallery">
+            <img src="photos.png"
+                 alt="Open gallery for EEC project"
+                 class="gallery-thumb-img" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <h3>Task Manager App</h3>
+      <p>A simple task-tracking app built with vanilla JS.</p>
+    </div>
+
+    <!-- Modals (only once in the page) -->
+    <div class="video-modal" id="videoModal">
+      <div class="video-frame"></div>
+    </div>
+
+    <div class="image-modal" id="imageModal">
+      <button class="gallery-nav prev" aria-label="Previous photo">‹</button>
+      <img class="gallery-img" src="" alt="Project photo" />
+      <button class="gallery-nav next" aria-label="Next photo">›</button>
+    </div>
+  </section>
+
+  <!-- ========= Resume ========= -->
+  <section id="resume" class="section">
+    <h2>Resume</h2>
+    <div class="resume-buttons">
+      <a href="MyResume.pdf" class="btn" target="_blank" rel="noopener">View Resume</a>
+      <a href="MyResume.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </section>
+
+  <!-- ========= Contact ========= -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:jasmlopez05@gmail.com">jasmlopez05@gmail.com</a></p>
+    <div class="socials">
+      <a href="#" aria-label="GitHub profile">GitHub</a>
+      <a href="#" aria-label="LinkedIn profile">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- ========= Footer ========= -->
+  <footer>
+    <p>&copy; 2025 Pierce Jasm Mercader</p>
+  </footer>
+
+  <!-- ========= Scripts ========= -->
+  <script src="script.js"></script>
+</body>
+</html>
